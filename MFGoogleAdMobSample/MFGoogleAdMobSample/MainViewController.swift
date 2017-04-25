@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = editButtonItem
+        
         if (self.childViewControllers.first as? MasterViewController) != nil {
             let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(insertNewObject))
             navigationItem.rightBarButtonItem = addButton
@@ -33,6 +35,14 @@ class MainViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func setEditing(_ editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        
+        if let vc = self.childViewControllers.first as? MasterViewController {
+            vc.setEditing(editing, animated: animated)
+        }
     }
     
 
