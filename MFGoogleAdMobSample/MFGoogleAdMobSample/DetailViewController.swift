@@ -27,6 +27,11 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        GoogleAdMob.sharedInstance.showBannerView(location: .bottom, mainViewController: self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
