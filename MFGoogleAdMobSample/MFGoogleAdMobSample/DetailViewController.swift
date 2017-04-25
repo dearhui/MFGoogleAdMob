@@ -31,6 +31,7 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         GoogleAdMob.sharedInstance.showBannerView(location: .bottom, mainViewController: self)
+        GoogleAdMob.sharedInstance.createInterstitial()
     }
 
     override func didReceiveMemoryWarning() {
